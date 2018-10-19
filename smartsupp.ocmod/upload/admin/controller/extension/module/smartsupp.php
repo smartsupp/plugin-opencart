@@ -1,7 +1,4 @@
 <?php
-/**
- * @author Tomáš Blatný
- */
 
 use Smartsupp\Auth\Api;
 
@@ -34,7 +31,7 @@ class ControllerExtensionModuleSmartsupp extends Controller
 					$data = array(
 						'email' => $_POST['email'],
 						'password' => $_POST['password'],
-						'consentTerms.consentTerms' => 1,
+						'consentTerms' => 1,
 					);
 					$result = $_GET['action'] === 'register' ? $api->create($data + array('lang' => $this->language->get('code'))) : $api->login($data + array('partnerKey' => 'j29hnc919y'));
 					if (isset($result['error'])) {
