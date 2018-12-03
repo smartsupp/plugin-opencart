@@ -1,8 +1,4 @@
-# Smartsupp plugin - OpenCart 3.0
-
-## Compatibility
-
-Versions: 3.0.0.0 - 3.x.x.x
+# Smartsupp plugin - OpenCart
 
 ## Copyright
 
