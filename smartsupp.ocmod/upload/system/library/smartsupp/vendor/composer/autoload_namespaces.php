@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Smartsupp' => array($vendorDir . '/smartsupp/chat-code-generator/src', $vendorDir . '/smartsupp/php-partner-client/src'),
+    'Smartsupp' => array($vendorDir . '/smartsupp/php-partner-client/src', $vendorDir . '/smartsupp/chat-code-generator/src'),
 );

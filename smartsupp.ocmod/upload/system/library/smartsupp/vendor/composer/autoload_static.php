@@ -11,8 +11,8 @@ class ComposerStaticInit8a11ce1759d170e1c7e2501b752e3653
         array (
             'Smartsupp' => 
             array (
-                0 => __DIR__ . '/..' . '/smartsupp/chat-code-generator/src',
-                1 => __DIR__ . '/..' . '/smartsupp/php-partner-client/src',
+                0 => __DIR__ . '/..' . '/smartsupp/php-partner-client/src',
+                1 => __DIR__ . '/..' . '/smartsupp/chat-code-generator/src',
             ),
         ),
     );

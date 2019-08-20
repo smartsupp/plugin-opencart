@@ -7,6 +7,10 @@ require __DIR__ . '/../../../../system/library/smartsupp/vendor/autoload.php';
 
 class ControllerExtensionModuleSmartsupp extends Controller
 {
+    /**
+     * Smartsupp partner key for Magento platform
+     */
+    const PARNER_KEY = 'j29hnc919y';
 
 	const SETTING_NAME = 'smartsupp';
 
@@ -32,8 +36,10 @@ class ControllerExtensionModuleSmartsupp extends Controller
 						'email' => $_POST['email'],
 						'password' => $_POST['password'],
 						'consentTerms' => 1,
+                        'platform' => 'Opencart ' . $this->getOpenCartVersion(),
+                        'partnerKey' => self::PARNER_KEY,
 					);
-					$result = $_GET['action'] === 'register' ? $api->create($data + array('lang' => $this->language->get('code'))) : $api->login($data + array('partnerKey' => 'j29hnc919y'));
+					$result = $_GET['action'] === 'register' ? $api->create($data + array('lang' => $this->language->get('code'))) : $api->login($data);
 					if (isset($result['error'])) {
 						$message = $result['message'];
 						$formAction = $_GET['action'];
@@ -103,6 +109,20 @@ class ControllerExtensionModuleSmartsupp extends Controller
 		$this->response->setOutput($this->load->view('extension/module/smartsupp', $data));
 	}
 
+    private function getOpenCartVersion()
+    {
+        return defined('VERSION') ? VERSION : '???';
+    }
+
+    public function install() {
+        $this->load->model('setting/setting');
+        $this->model_setting_setting->editSetting('module_smartsupp', ['module_smartsupp_status'=>1]);
+    }
+
+    public function uninstall() {
+        $this->load->model('setting/setting');
+        $this->model_setting_setting->deleteSetting('module_smartsupp_status');
+    }
 }
 
 class SmartsuppModuleExtensionTranslator
