@@ -39,7 +39,7 @@ class ControllerExtensionModuleSmartsupp extends Controller
                         'platform' => 'Opencart ' . $this->getOpenCartVersion(),
                         'partnerKey' => self::PARNER_KEY,
 					);
-					$result = $_GET['action'] === 'register' ? $api->create($data + array('lang' => $this->language->get('code'))) : $api->login($data);
+					$result = $_GET['action'] === 'register' ? $api->create($data) : $api->login($data);
 					if (isset($result['error'])) {
 						$message = $result['message'];
 						$formAction = $_GET['action'];
